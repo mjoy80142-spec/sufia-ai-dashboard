@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sufia AI - Advanced Voice Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="glass-container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="logo">
+                <i class="fa-solid fa-microchip"></i>
+                <span>SUFIA AI 2.0</span>
+            </div>
+            <div class="status-badge" id="serverStatus">
+                <span class="dot"></span> Online
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <h2>Next-Gen Trading Voice Assistant</h2>
+            <p>আপনার অ্যাকাউন্ট অ্যাক্টিভেট করুন এবং রিয়েল-টাইম এআই সিগন্যাল অ্যাক্সেস করুন।</p>
+
+            <!-- Voice Wave Visualizer Effect -->
+            <div class="voice-wave">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <!-- Input Form -->
+            <div class="input-group">
+                <i class="fa-solid fa-key icon"></i>
+                <input type="text" id="activationKey" placeholder="এখানে অ্যাক্টিভেশন কি (Key) দিন...">
+            </div>
+
+            <button class="btn-activate" onclick="processActivation()">
+                <i class="fa-solid fa-bolt"></i> অ্যাক্টিভেট করুন
+            </button>
+
+            <!-- Live Status Output -->
+            <div id="responseBox" class="response-box hidden">
+                <div class="spinner" id="spinner"></div>
+                <p id="responseText"></p>
+            </div>
+        </div>
+
+        <!-- Footer Info -->
+        <div class="footer">
+            <p><i class="fa-solid fa-shield-halved"></i> Secure End-to-End Encryption</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
