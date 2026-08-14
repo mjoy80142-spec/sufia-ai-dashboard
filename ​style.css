@@ -23,7 +23,7 @@ body {
     border-radius: 20px;
     padding: 30px;
     width: 100%;
-    max-width: 420px;
+    max-width: 450px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
@@ -102,10 +102,10 @@ body {
     50% { height: 35px; opacity: 1; background: #a855f7; }
 }
 
-/* Input Styling */
+/* Input & Dropdown Styling */
 .input-group {
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .input-group .icon {
@@ -114,9 +114,10 @@ body {
     top: 50%;
     transform: translateY(-50%);
     color: #64748b;
+    z-index: 2;
 }
 
-.input-group input {
+.input-group input, .custom-select {
     width: 100%;
     padding: 14px 14px 14px 45px;
     background: rgba(15, 23, 42, 0.6);
@@ -126,9 +127,15 @@ body {
     font-size: 0.95rem;
     outline: none;
     transition: 0.3s;
+    appearance: none;
 }
 
-.input-group input:focus {
+.custom-select option {
+    background: #0f172a;
+    color: #fff;
+}
+
+.input-group input:focus, .custom-select:focus {
     border-color: #6366f1;
     box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
 }
@@ -146,6 +153,7 @@ body {
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    margin-top: 5px;
 }
 
 .btn-activate:hover {
@@ -153,24 +161,119 @@ body {
     box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
 }
 
-/* Response Box */
-.response-box {
+/* Chart Section */
+.chart-section {
     margin-top: 20px;
-    padding: 12px;
+}
+
+.chart-section h4, .history-section h4 {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.chart-box {
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* History Section */
+.history-section {
+    margin-top: 20px;
+}
+
+#historyList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#historyList li {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
     border-radius: 8px;
-    background: rgba(0, 0, 0, 0.2);
-    font-size: 0.88rem;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Support Button */
+.btn-support {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
+    background: rgba(14, 165, 233, 0.2);
+    border: 1px solid rgba(14, 165, 233, 0.5);
+    color: #38bdf8;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-support:hover {
+    background: rgba(14, 165, 233, 0.4);
+}
+
+/* Response & Signal Box Styling */
+.response-box {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
+    text-align: center;
+}
+
+.signal-details {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.signal-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.call-signal { color: #22c55e; }
+.put-signal { color: #ef4444; }
+
+/* Timer Badge */
+.timer-container {
+    margin-top: 15px;
+    background: rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(99, 102, 241, 0.5);
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+#timerText {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #a855f7;
+    letter-spacing: 1px;
 }
 
 .hidden { display: none; }
 
 .spinner {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     border: 2px solid rgba(255,255,255,0.3);
     border-radius: 50%;
     border-top-color: #fff;

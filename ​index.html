@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sufia AI - Advanced Voice Assistant</title>
+    <title>Sufia AI 2.0 - Trading Signal Assistant</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -17,43 +17,115 @@
                 <span>SUFIA AI 2.0</span>
             </div>
             <div class="status-badge" id="serverStatus">
-                <span class="dot"></span> Online
+                <span class="dot"></span> Live Signals
             </div>
         </div>
 
         <!-- Main Content -->
         <div class="content">
             <h2>Next-Gen Trading Voice Assistant</h2>
-            <p>আপনার অ্যাকাউন্ট অ্যাক্টিভেট করুন এবং রিয়েল-টাইম এআই সিগন্যাল অ্যাক্সেস করুন।</p>
+            <p>Real Market ও OTC Market এর জন্য রিয়েল-টাইম AI অ্যাকুরেসি সিগন্যাল।</p>
 
             <!-- Voice Wave Visualizer Effect -->
             <div class="voice-wave">
                 <span></span><span></span><span></span><span></span><span></span>
             </div>
 
-            <!-- Input Form -->
-            <div class="input-group">
-                <i class="fa-solid fa-key icon"></i>
-                <input type="text" id="activationKey" placeholder="এখানে অ্যাক্টিভেশন কি (Key) দিন...">
+            <!-- Activation Section -->
+            <div id="activationSection">
+                <div class="input-group">
+                    <i class="fa-solid fa-key icon"></i>
+                    <input type="text" id="activationKey" placeholder="এখানে অ্যাক্টিভেশন কি (Key) দিন...">
+                </div>
+
+                <button class="btn-activate" onclick="processActivation()">
+                    <i class="fa-solid fa-bolt"></i> অ্যাক্টিভেট করুন
+                </button>
             </div>
 
-            <button class="btn-activate" onclick="processActivation()">
-                <i class="fa-solid fa-bolt"></i> অ্যাক্টিভেট করুন
-            </button>
+            <!-- Trading Controls (Hidden until activation) -->
+            <div id="tradingControls" class="hidden">
+                <!-- Market Type Selection -->
+                <div class="input-group">
+                    <i class="fa-solid fa-chart-line icon"></i>
+                    <select id="marketType" class="custom-select" onchange="updateChart()">
+                        <option value="real">Real Market 🌐</option>
+                        <option value="otc">OTC Market 📈</option>
+                    </select>
+                </div>
 
-            <!-- Live Status Output -->
+                <!-- Currency Pair Selection -->
+                <div class="input-group">
+                    <i class="fa-solid fa-coins icon"></i>
+                    <select id="currencyPair" class="custom-select" onchange="updateChart()">
+                        <option value="FX:EURUSD">EUR/USD</option>
+                        <option value="FX:GBPUSD">GBP/USD</option>
+                        <option value="FX:USDJPY">USD/JPY</option>
+                        <option value="FX:AUDCAD">AUD/CAD</option>
+                        <option value="FX:EURGBP">EUR/GBP (OTC)</option>
+                        <option value="FX:USDBRL">USD/BRL (OTC)</option>
+                    </select>
+                </div>
+
+                <!-- Timeframe Selection -->
+                <div class="input-group">
+                    <i class="fa-solid fa-clock icon"></i>
+                    <select id="timeframeSelect" class="custom-select">
+                        <option value="1">Timeframe: 1 Minute (M1)</option>
+                        <option value="2">Timeframe: 2 Minutes (M2)</option>
+                        <option value="5">Timeframe: 5 Minutes (M5)</option>
+                    </select>
+                </div>
+
+                <button class="btn-activate" onclick="generateSignal()">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> সিগন্যাল পান (Analyze)
+                </button>
+
+                <!-- TradingView Chart Container -->
+                <div class="chart-section">
+                    <h4>Live Candlestick Chart</h4>
+                    <div id="tradingview_widget" class="chart-box"></div>
+                </div>
+
+                <!-- Recent Signals History -->
+                <div id="historyContainer" class="history-section hidden">
+                    <h4><i class="fa-solid fa-history"></i> সাম্প্রতিক সিগন্যাল হিস্ট্রি</h4>
+                    <ul id="historyList"></ul>
+                </div>
+            </div>
+
+            <!-- Live Status & Signal Output -->
             <div id="responseBox" class="response-box hidden">
                 <div class="spinner" id="spinner"></div>
-                <p id="responseText"></p>
+                <div id="signalOutput">
+                    <p id="responseText"></p>
+                    <div id="signalDetails" class="signal-details hidden">
+                        <h3 id="signalDirection">---</h3>
+                        <p id="accuracyRate">Accuracy: --%</p>
+                        <p id="timeFrameDisplay">Timeframe: 1 Min</p>
+                        
+                        <!-- Real-time Countdown Timer -->
+                        <div id="timerContainer" class="timer-container hidden">
+                            <span id="timerText">01:00</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- Live Telegram Support Button (এখানে লিংক বসানো হয়েছে) -->
+        <a href="https://t.me/+cCKAkzAW8ldmMGI1" target="_blank" class="btn-support">
+            <i class="fa-brands fa-telegram"></i> Telegram Support
+        </a>
 
         <!-- Footer Info -->
         <div class="footer">
-            <p><i class="fa-solid fa-shield-halved"></i> Secure End-to-End Encryption</p>
+            <p><i class="fa-solid fa-shield-halved"></i> Secure End-to-End Trading Algorithm</p>
         </div>
     </div>
 
+    <!-- TradingView Widget Script -->
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
